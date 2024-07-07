@@ -1,6 +1,6 @@
 ## Inner Class
 
-Creating an Inner class does not create an instance filed of type Inner in the Outer class.
+Creating an Inner class does not create an instance field of type Inner in the Outer class.
 ```java
 public class Outer {
     private boolean beep;
@@ -8,7 +8,7 @@ public class Outer {
         int j;
         public void m() {
             beep = true; // OK
-            Outer.this.beep = true; // OK
+            Outer.this.beep = true; // OK - `Outer` is the name of the enclosing class
         }
     }
 }
@@ -19,9 +19,10 @@ public class Outer {
 3. Construct Inner class instances more explicitly using `outer.new Inner(params)` like `this.new Inner()` (`this` is redundant here). For any object `o` of Outer, we can construct Inner object as `o.new Inner()`.
 4. Use `Outer.Inner` to refer to `Inner` outside `Outer`.
 5. Any static field declared in inner class must be final and initialized with a compile time constant.
-6. Inner class cannot have static method.
+6. Inner class cannot have static method. (No reason specified in language for this limitation.)
 7. Inner class gets translated into regular class regular files with`$` separating the outer and inner class names.
 8. Inner classes are more powerful than extracting them out, and storing a reference to the outer class, since such an extracted class will not be able to access Outer's private fields.
+9. Compiler modifies all inner class constructor by adding a parameter for the outer class reference. Compiler also automatically adds a parameter for the outer class object in inner class constructor call. `outerObject.new Inner(params)`.
 
 #### Local inner class
 
