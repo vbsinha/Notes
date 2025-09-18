@@ -225,3 +225,11 @@ There are different isolation levels which can be specified in transactions. Hig
 #### Multi version concurrency control
 
 Writers do not block readers. Readers do not block writers.
+
+### Reasons for failures
+
+1. Logical error during transaction (integrity constraint violation)
+2. Internal state error (deadlock etc.)
+3. Software failure due to bugs in OS, DBMS
+4. Hardware failure like power failure etc.
+5. Storage Media Failure like failure during disk write etc.

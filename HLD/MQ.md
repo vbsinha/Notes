@@ -60,7 +60,7 @@ Systems should try to be idempotent & allow out-of-order delivery.
 
 ### Fan Out / In
 
-Fan Out: Multiple receivers want ot receive a message - for audit log / archive etc.
+Fan Out: Multiple receivers want to receive a message - for audit log / archive etc.
 
 Fan In: Receiver wants many kinds of receive: notification service / audit-log.
 
